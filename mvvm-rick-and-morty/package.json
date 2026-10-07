@@ -5,6 +5,7 @@
   "description": "Ejemplo didactico de MVVM con Vanilla JavaScript, Vite y la API de Rick and Morty.",
   "type": "module",
   "scripts": {
+    "setup": "node scripts/setup-env.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",

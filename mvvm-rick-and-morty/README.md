@@ -26,6 +26,12 @@ View ─────→ ViewModel ─────→ Model ─────→ Ri
   y transforma el JSON externo en objetos `Character`.
 - No conoce el DOM ni importa la Vista o el ViewModel.
 
+### Configuración
+
+`src/config/environment.js` es el único punto que lee y valida variables de
+entorno. `main.js` inyecta la URL configurada al Modelo, por lo que la capa de
+datos no conoce Vite ni accede directamente a `import.meta.env`.
+
 ### ViewModel
 
 `src/viewmodel/CharactersViewModel.js` mantiene el estado observable de la UI:
@@ -62,9 +68,25 @@ dependencias.
 Requiere Node.js `20.19+` o `22.12+`.
 
 ```bash
+npm run setup
 npm install
 npm run dev
 ```
+
+El comando `npm run setup` crea el archivo `.env` local a partir de
+`.env.example`. También puede hacerse manualmente:
+
+```bash
+cp .env.example .env
+```
+
+Variable disponible:
+
+```env
+VITE_API_BASE_URL=https://rickandmortyapi.com/api
+```
+
+`.env` está excluido de Git; solo se publica `.env.example`.
 
 Vite mostrará la dirección local, normalmente `http://localhost:5173`.
 

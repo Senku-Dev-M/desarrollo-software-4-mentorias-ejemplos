@@ -1,7 +1,5 @@
 import { Character } from "./Character.js";
 
-const DEFAULT_BASE_URL = "https://rickandmortyapi.com/api";
-
 export class RickAndMortyApiError extends Error {
   constructor(message) {
     super(message);
@@ -10,9 +8,13 @@ export class RickAndMortyApiError extends Error {
 }
 
 export class RickAndMortyModel {
-  constructor({ fetchImpl = globalThis.fetch, baseUrl = DEFAULT_BASE_URL } = {}) {
+  constructor({ fetchImpl = globalThis.fetch, baseUrl } = {}) {
+    if (!baseUrl) {
+      throw new Error("RickAndMortyModel requires a baseUrl.");
+    }
+
     this.fetch = (...args) => fetchImpl(...args);
-    this.baseUrl = baseUrl;
+    this.baseUrl = baseUrl.replace(/\/$/, "");
   }
 
   async getCharacters({ page = 1, name = "", status = "", signal } = {}) {

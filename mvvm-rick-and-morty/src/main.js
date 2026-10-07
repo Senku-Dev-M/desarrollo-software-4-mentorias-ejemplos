@@ -1,10 +1,12 @@
 import "./styles.css";
+import { loadEnvironment } from "./config/environment.js";
 import { RickAndMortyModel } from "./model/RickAndMortyModel.js";
 import { CharactersView } from "./view/CharactersView.js";
 import { CharactersViewModel } from "./viewmodel/CharactersViewModel.js";
 
 const root = document.querySelector("#app");
-const model = new RickAndMortyModel();
+const environment = loadEnvironment(import.meta.env);
+const model = new RickAndMortyModel({ baseUrl: environment.apiBaseUrl });
 const viewModel = new CharactersViewModel(model);
 const view = new CharactersView(root);
 

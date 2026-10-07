@@ -3,6 +3,8 @@ import test from "node:test";
 import { Character } from "../src/model/Character.js";
 import { RickAndMortyModel } from "../src/model/RickAndMortyModel.js";
 
+const TEST_BASE_URL = "https://example.com/api";
+
 const API_CHARACTER = {
   id: 1,
   name: "Rick Sanchez",
@@ -19,6 +21,7 @@ const API_CHARACTER = {
 test("Model builds the API query and maps results to Character", async () => {
   let requestedUrl;
   const model = new RickAndMortyModel({
+    baseUrl: TEST_BASE_URL,
     fetchImpl: async (url) => {
       requestedUrl = url;
       return {
@@ -47,6 +50,7 @@ test("Model builds the API query and maps results to Character", async () => {
 
 test("Model translates a 404 search response into an empty result", async () => {
   const model = new RickAndMortyModel({
+    baseUrl: TEST_BASE_URL,
     fetchImpl: async () => ({ ok: false, status: 404 }),
   });
 
@@ -71,7 +75,10 @@ test("Model invokes the injected fetch function without binding itself as this",
     };
   }
 
-  const model = new RickAndMortyModel({ fetchImpl });
+  const model = new RickAndMortyModel({
+    baseUrl: TEST_BASE_URL,
+    fetchImpl,
+  });
   await model.getCharacters();
 
   assert.equal(receivedThis, undefined);

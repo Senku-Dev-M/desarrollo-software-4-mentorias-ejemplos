@@ -7,6 +7,22 @@ La interfaz funciona como una **Single Page Application (SPA)**: se monta una
 sola vez en `#app` y actualiza búsqueda, filtros, paginación y detalles sin
 recargar el documento.
 
+## Capturas
+
+### Escritorio
+
+![Catálogo de personajes en una pantalla de escritorio](./docs/images/characters-desktop.png)
+
+### Móvil
+
+<p align="center">
+  <img
+    src="./docs/images/characters-mobile.png"
+    width="430"
+    alt="Catálogo de personajes adaptado a una pantalla móvil"
+  />
+</p>
+
 ## Arquitectura
 
 ```text

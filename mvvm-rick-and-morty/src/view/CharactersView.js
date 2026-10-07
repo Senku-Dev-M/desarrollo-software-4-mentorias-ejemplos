@@ -191,16 +191,6 @@ export class CharactersView {
 
     this.root.innerHTML = `
       <div class="site-shell">
-        <header class="app-header">
-          <nav class="topbar" aria-label="Información del ejemplo">
-            <a class="brand" href="/" aria-label="Portal Index, inicio">
-              <span class="brand-mark" aria-hidden="true"><i></i></span>
-              <span>PORTAL INDEX</span>
-            </a>
-            <span class="course-tag">MVVM · VANILLA JS · VITE</span>
-          </nav>
-        </header>
-
         <section class="catalog" aria-labelledby="catalog-title">
           <div class="catalog-heading">
             <div>

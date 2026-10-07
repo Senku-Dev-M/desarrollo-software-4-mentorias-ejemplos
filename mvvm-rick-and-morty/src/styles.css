@@ -77,57 +77,6 @@ a {
   overflow: hidden;
 }
 
-.app-header {
-  padding: 0 clamp(1.25rem, 4vw, 4.5rem);
-  border-bottom: 1px solid var(--line);
-  background-image:
-    linear-gradient(rgba(184, 245, 0, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184, 245, 0, 0.045) 1px, transparent 1px);
-  background-size: 58px 58px;
-}
-
-.topbar {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1400px;
-  height: 84px;
-  margin: 0 auto;
-  border-bottom: 1px solid var(--line);
-}
-
-.brand {
-  display: inline-flex;
-  gap: 0.75rem;
-  align-items: center;
-  font-family: var(--mono);
-  font-size: 0.84rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-decoration: none;
-}
-
-.brand-mark {
-  display: grid;
-  width: 32px;
-  height: 32px;
-  place-items: center;
-  border: 1px solid var(--portal);
-  border-radius: 50%;
-  box-shadow: 0 0 24px rgba(184, 245, 0, 0.24);
-}
-
-.brand-mark i {
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--portal);
-  border-radius: 45% 55% 58% 42%;
-  transform: rotate(32deg);
-}
-
-.course-tag,
 .eyebrow,
 .message-kicker {
   font-family: var(--mono);
@@ -135,10 +84,6 @@ a {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-}
-
-.course-tag {
-  color: var(--muted);
 }
 
 .eyebrow {
@@ -164,7 +109,7 @@ a {
 .catalog {
   max-width: 1400px;
   margin: 0 auto;
-  padding: clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 4.5rem) 6rem;
+  padding: 3rem clamp(1.25rem, 4vw, 4.5rem) 6rem;
 }
 
 .catalog-heading {
@@ -733,9 +678,7 @@ button:disabled {
 }
 
 @media (max-width: 540px) {
-  .topbar { height: 70px; }
-  .course-tag { display: none; }
-  .catalog { padding-top: 2.5rem; }
+  .catalog { padding-top: 2rem; }
   .search-console { grid-template-columns: 1fr; }
   .search-button, .button--ghost { grid-column: auto; }
   .characters-grid { grid-template-columns: 1fr; }

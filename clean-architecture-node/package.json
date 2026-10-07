@@ -1,0 +1,18 @@
+{
+  "name": "clean-architecture-node",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ejemplo didactico de una API de usuarios con Clean Architecture, Node.js y Express.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

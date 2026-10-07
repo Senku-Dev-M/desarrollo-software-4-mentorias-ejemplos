@@ -1,0 +1,31 @@
+@UsersApi_HostAddress = http://localhost:5000
+@UserId = 00000000-0000-0000-0000-000000000000
+
+### Obtener todos los usuarios
+GET {{UsersApi_HostAddress}}/api/users
+Accept: application/json
+
+### Crear usuario
+POST {{UsersApi_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "name": "Ana Torres",
+  "email": "ana@example.com"
+}
+
+### Obtener usuario por ID
+GET {{UsersApi_HostAddress}}/api/users/{{UserId}}
+Accept: application/json
+
+### Actualizar usuario
+PUT {{UsersApi_HostAddress}}/api/users/{{UserId}}
+Content-Type: application/json
+
+{
+  "name": "Ana Torres Vargas",
+  "email": "ana.torres@example.com"
+}
+
+### Eliminar usuario
+DELETE {{UsersApi_HostAddress}}/api/users/{{UserId}}

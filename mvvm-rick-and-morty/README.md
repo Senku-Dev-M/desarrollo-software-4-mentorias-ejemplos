@@ -61,9 +61,18 @@ No utiliza selectores ni modifica HTML. Esto permite probarlo sin navegador.
 
 ### View
 
-`src/view/CharactersView.js` transforma el estado en HTML y traduce eventos del
-DOM en comandos del ViewModel. No usa `fetch`, no construye URLs de la API y no
-decide reglas de navegación.
+La capa `src/view` está separada por responsabilidad:
+
+- `CharactersView.js` conecta los eventos del DOM con los comandos del
+  ViewModel;
+- `pages/CharactersPage.js` compone la pantalla completa;
+- `components` contiene filtros, tarjetas, estados, paginación y el panel de
+  detalle;
+- `utils` reúne pequeñas funciones de presentación reutilizables.
+
+Las páginas y componentes son funciones puras: reciben estado y devuelven HTML.
+No usan `fetch`, no conocen la URL de la API y no llaman directamente al
+ViewModel.
 
 ### Composition Root
 
@@ -113,8 +122,8 @@ npm test
 npm run build
 ```
 
-Las pruebas validan el mapeo del Modelo y el comportamiento del ViewModel sin
-depender del DOM.
+Las pruebas validan el mapeo del Modelo, el comportamiento del ViewModel y la
+composición segura de páginas y componentes sin depender del DOM.
 
 ## API
 

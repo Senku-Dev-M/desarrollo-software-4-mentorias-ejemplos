@@ -10,6 +10,7 @@ diferente para facilitar la comparación de conceptos y decisiones de diseño.
 | --- | --- | --- |
 | [`clean-architecture-dotnet`](./clean-architecture-dotnet) | .NET 10 / ASP.NET Core | API CRUD de usuarios organizada con Clean Architecture. |
 | [`clean-architecture-node`](./clean-architecture-node) | Node.js / Express 5 | Equivalente JavaScript de la misma API y arquitectura. |
+| [`mvvm-rick-and-morty`](./mvvm-rick-and-morty) | Vanilla JavaScript / Vite | Explorador de personajes que demuestra el patrón MVVM. |
 
 Ambos ejemplos incluyen:
 

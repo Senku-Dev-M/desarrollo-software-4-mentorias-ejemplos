@@ -1,0 +1,38 @@
+export const courses = [
+  {
+    id: 1,
+    code: "01",
+    category: "HTML",
+    title: "HTML semántico",
+    description: "Organiza una página usando etiquetas que explican el propósito de su contenido.",
+    duration: "25 min",
+    color: "coral",
+  },
+  {
+    id: 2,
+    code: "02",
+    category: "CSS",
+    title: "Layouts con Grid",
+    description: "Distribuye elementos en filas y columnas sin llenar el HTML de contenedores.",
+    duration: "35 min",
+    color: "blue",
+  },
+  {
+    id: 3,
+    code: "03",
+    category: "JavaScript",
+    title: "Eventos del DOM",
+    description: "Responde a clics del usuario y actualiza la interfaz a partir del estado.",
+    duration: "30 min",
+    color: "yellow",
+  },
+  {
+    id: 4,
+    code: "04",
+    category: "JavaScript",
+    title: "ES Modules",
+    description: "Separa el código en archivos pequeños y conecta cada pieza con import y export.",
+    duration: "20 min",
+    color: "green",
+  },
+];

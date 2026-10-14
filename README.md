@@ -1,8 +1,8 @@
 # Desarrollo de Software 4 — Mentorías y ejemplos
 
 Repositorio de ejemplos didácticos para las mentorías de Desarrollo de
-Software 4. Cada proyecto muestra el mismo caso de uso con una tecnología
-diferente para facilitar la comparación de conceptos y decisiones de diseño.
+Software 4. Cada proyecto presenta un concepto de arquitectura o desarrollo de
+interfaces mediante una implementación pequeña, ejecutable y fácil de explicar.
 
 ## Ejemplos disponibles
 
@@ -11,8 +11,9 @@ diferente para facilitar la comparación de conceptos y decisiones de diseño.
 | [`clean-architecture-dotnet`](./clean-architecture-dotnet) | .NET 10 / ASP.NET Core | API CRUD de usuarios organizada con Clean Architecture. |
 | [`clean-architecture-node`](./clean-architecture-node) | Node.js / Express 5 | Equivalente JavaScript de la misma API y arquitectura. |
 | [`mvvm-rick-and-morty`](./mvvm-rick-and-morty) | Vanilla JavaScript / Vite | Explorador de personajes que demuestra el patrón MVVM. |
+| [`ui-components-vanilla`](./ui-components-vanilla) | HTML / CSS / Vanilla JavaScript | Introducción a componentes reutilizables y composición de páginas. |
 
-Ambos ejemplos incluyen:
+Los ejemplos de Clean Architecture incluyen:
 
 - entidad `User` y objetos de valor para nombre y correo;
 - casos de uso para crear, listar, consultar, actualizar y eliminar usuarios;
@@ -22,9 +23,10 @@ Ambos ejemplos incluyen:
 
 ## Objetivo
 
-El propósito es comparar cómo se expresan las mismas ideas de Clean
-Architecture en diferentes ecosistemas, manteniendo ejemplos pequeños,
-ejecutables y fáciles de explicar durante una mentoría.
+El propósito es estudiar conceptos de diseño de software mediante ejemplos
+pequeños y ejecutables. Los proyectos de Clean Architecture permiten comparar
+la misma solución en .NET y Node.js; los proyectos de interfaz muestran MVVM y
+composición de componentes con JavaScript vanilla.
 
 Cada carpeta contiene su propio `README.md` con instrucciones de ejecución y
 detalles de la implementación.

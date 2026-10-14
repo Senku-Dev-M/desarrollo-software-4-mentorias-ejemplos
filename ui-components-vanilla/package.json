@@ -1,0 +1,16 @@
+{
+  "name": "ui-components-vanilla",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ejemplo educativo de componentes y páginas con Vanilla JavaScript.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "vite": "^8.3.3"
+  }
+}

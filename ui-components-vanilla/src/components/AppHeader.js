@@ -1,27 +1,29 @@
-export function AppHeader({ currentPage, favoriteCount }) {
+export function AppHeader({ currentPage, wishlistCount }) {
+  const storeIsActive = currentPage === "store" || currentPage === "details";
+
   return `
     <header class="app-header">
-      <a class="brand" href="#" data-page="home" aria-label="Ir al inicio">
-        <span class="brand__mark" aria-hidden="true">UI</span>
-        <span><strong>Taller de componentes</strong><small>Vanilla JavaScript</small></span>
-      </a>
+      <button class="brand" type="button" data-page="store" aria-label="Ir a la tienda">
+        <span class="brand__icon" aria-hidden="true">G</span>
+        <strong>GAME SHELF</strong>
+      </button>
 
       <nav aria-label="Navegación principal">
         <button
           type="button"
-          data-page="home"
-          class="${currentPage === "home" ? "is-active" : ""}"
-          ${currentPage === "home" ? 'aria-current="page"' : ""}
+          data-page="store"
+          class="${storeIsActive ? "is-active" : ""}"
+          ${storeIsActive ? 'aria-current="page"' : ""}
         >
-          Todos
+          Tienda
         </button>
         <button
           type="button"
-          data-page="favorites"
-          class="${currentPage === "favorites" ? "is-active" : ""}"
-          ${currentPage === "favorites" ? 'aria-current="page"' : ""}
+          data-page="wishlist"
+          class="${currentPage === "wishlist" ? "is-active" : ""}"
+          ${currentPage === "wishlist" ? 'aria-current="page"' : ""}
         >
-          Favoritos <span class="nav-count">${favoriteCount}</span>
+          Lista de deseos <span>${wishlistCount}</span>
         </button>
       </nav>
     </header>

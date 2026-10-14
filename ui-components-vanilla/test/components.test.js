@@ -1,34 +1,43 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { CourseCard } from "../src/components/CourseCard.js";
-import { courses } from "../src/data/courses.js";
-import { FavoritesPage } from "../src/pages/FavoritesPage.js";
-import { HomePage } from "../src/pages/HomePage.js";
+import { GameCard } from "../src/components/GameCard.js";
+import { games } from "../src/data/games.js";
+import { GameDetailsPage } from "../src/pages/GameDetailsPage.js";
+import { StorePage } from "../src/pages/StorePage.js";
+import { WishlistPage } from "../src/pages/WishlistPage.js";
 
-test("CourseCard recibe datos y refleja si un curso es favorito", () => {
-  const html = CourseCard({ course: courses[0], isFavorite: true });
+test("GameCard recibe un juego y su estado de lista de deseos", () => {
+  const html = GameCard({ game: games[0], isWishlisted: true });
 
-  assert.match(html, /HTML semántico/);
+  assert.match(html, /Nebula Drift/);
   assert.match(html, /aria-pressed="true"/);
-  assert.match(html, /Guardado/);
+  assert.match(html, /En tu lista/);
 });
 
-test("HomePage reutiliza CourseCard para todos los cursos", () => {
-  const html = HomePage({ courses, favoriteIds: new Set() });
+test("StorePage reutiliza GameCard para todos los juegos", () => {
+  const html = StorePage({ games, wishlistIds: new Set() });
 
-  courses.forEach((course) => assert.match(html, new RegExp(course.title)));
+  games.forEach((game) => assert.match(html, new RegExp(game.title)));
 });
 
-test("FavoritesPage muestra solo los cursos seleccionados", () => {
-  const html = FavoritesPage({ courses, favoriteIds: new Set([2]) });
+test("GameDetailsPage muestra los datos del juego seleccionado", () => {
+  const html = GameDetailsPage({ game: games[1], isWishlisted: false });
 
-  assert.match(html, /Layouts con Grid/);
-  assert.doesNotMatch(html, /HTML semántico/);
+  assert.match(html, /Hollow Signal/);
+  assert.match(html, /Quiet North/);
+  assert.match(html, /Agregar a mi lista/);
 });
 
-test("FavoritesPage reutiliza EmptyState cuando no hay selección", () => {
-  const html = FavoritesPage({ courses, favoriteIds: new Set() });
+test("WishlistPage muestra solo los juegos agregados", () => {
+  const html = WishlistPage({ games, wishlistIds: new Set([3]) });
 
-  assert.match(html, /Todavía no hay favoritos/);
-  assert.match(html, /data-page="home"/);
+  assert.match(html, /Pixel Forge/);
+  assert.doesNotMatch(html, /Nebula Drift/);
+});
+
+test("WishlistPage muestra un estado vacío sin juegos guardados", () => {
+  const html = WishlistPage({ games, wishlistIds: new Set() });
+
+  assert.match(html, /Tu lista está vacía/);
+  assert.match(html, /data-page="store"/);
 });

@@ -1,83 +1,82 @@
 # Componentes UI con Vanilla JavaScript
 
-Ejemplo educativo y pequeño para entender cómo organizar una interfaz en
+Ejemplo educativo y pequeño para aprender a organizar una interfaz en
 **componentes** y **páginas** sin usar React, Vue ni otro framework.
 
-La aplicación muestra temas de aprendizaje. Una tarjeta puede guardarse como
-favorita y el mismo componente vuelve a utilizarse en la página de favoritos.
-Los datos viven localmente para mantener la atención en la composición de UI.
+La aplicación imita un catálogo sencillo de videojuegos: permite ver la
+tienda, abrir el detalle de cada juego y agregarlo a una lista de deseos. Los
+juegos son ficticios y viven en un archivo local.
 
 ## Qué enseña
 
 - crear un componente como una función;
-- pasar datos mediante un objeto de propiedades o `props`;
+- pasarle datos mediante un objeto de propiedades o `props`;
 - componer un componente usando otros componentes;
-- construir páginas a partir de componentes reutilizables;
-- actualizar la interfaz cuando cambia un estado pequeño.
+- reutilizar `GameCard` en la tienda y en la lista de deseos;
+- abrir una página de detalle con el juego seleccionado;
+- actualizar la UI cuando cambia un estado pequeño.
 
 ## Estructura
 
 ```text
 src/
-├── components/          # Piezas reutilizables de la interfaz
+├── components/
 │   ├── AppHeader.js
-│   ├── CategoryBadge.js
-│   ├── CourseCard.js
-│   ├── CourseGrid.js
 │   ├── EmptyState.js
-│   └── PageIntro.js
-├── pages/               # Pantallas que combinan componentes
-│   ├── FavoritesPage.js
-│   └── HomePage.js
-├── data/courses.js      # Datos del ejemplo
-├── utils/escapeHtml.js  # Utilidad compartida
-├── main.js              # Estado, eventos y renderizado
+│   ├── GameCard.js
+│   ├── GameCover.js
+│   └── GameList.js
+├── pages/
+│   ├── GameDetailsPage.js
+│   ├── StorePage.js
+│   └── WishlistPage.js
+├── data/games.js
+├── utils/escapeHtml.js
+├── main.js
 └── styles.css
 ```
 
-## 1. Crear un componente
+## 1. Componente con datos
 
-Un componente es una función que recibe datos y devuelve una parte de la UI:
-
-```js
-export function CategoryBadge({ label }) {
-  return `<span class="category-badge">${label}</span>`;
-}
-```
-
-## 2. Pasarle datos
-
-`CourseCard` recibe un curso y un valor que indica si está guardado:
+`GameCard` recibe un juego y un booleano. Esos datos cambian lo que muestra el
+componente:
 
 ```js
-CourseCard({
-  course,
-  isFavorite: favoriteIds.has(course.id),
+GameCard({
+  game,
+  isWishlisted: wishlistIds.has(game.id),
 });
 ```
 
-El mismo código produce tarjetas distintas porque los datos cambian.
+## 2. Componente dentro de otro componente
 
-## 3. Reutilizarlo en páginas
+`GameList` recorre los datos y crea una tarjeta por cada juego. `GameCard`, a su
+vez, utiliza `GameCover`.
 
-`HomePage` y `FavoritesPage` utilizan `CourseGrid`. A su vez, `CourseGrid`
-utiliza `CourseCard` por cada elemento. La página de favoritos solo filtra los
-datos antes de pasarlos al componente.
+```text
+GameList → GameCard → GameCover
+```
+
+## 3. Reutilización en páginas
+
+Tanto `StorePage` como `WishlistPage` utilizan `GameList`. La página de deseos
+solo filtra los datos antes de pasarlos al mismo componente.
 
 ```text
 main.js
-   ├── HomePage ───────┐
-   └── FavoritesPage ──┴── CourseGrid ── CourseCard ── CategoryBadge
+   ├── StorePage ─────┐
+   ├── WishlistPage ──┴── GameList ── GameCard
+   └── GameDetailsPage ─────────────── GameCover
 ```
 
-Las páginas no duplican el HTML de las tarjetas.
+## 4. Estado y eventos
 
-## 4. Actualizar la interfaz
+`main.js` conserva tres datos: página actual, juego seleccionado e
+identificadores de la lista de deseos. Cada clic modifica ese estado y vuelve a
+ejecutar `render()`.
 
-`main.js` conserva dos datos de estado: la página actual y los identificadores
-favoritos. Al hacer clic, modifica el estado y llama otra vez a `render()`.
-Este enfoque es intencionalmente básico para mostrar el ciclo completo sin
-ocultarlo detrás de un framework.
+No hay router ni almacenamiento. Al recargar la página, la lista vuelve a estar
+vacía. Esto es intencional para mantener el ejemplo fácil de leer.
 
 ## Ejecutar
 
@@ -97,11 +96,5 @@ npm test
 npm run build
 ```
 
-Las pruebas llaman directamente a componentes y páginas porque son funciones
-puras: reciben datos y devuelven HTML.
-
-## Límites intencionales
-
-No incluye API, base de datos, router, autenticación ni persistencia. Al
-recargar el navegador se limpian los favoritos. Son decisiones conscientes
-para que el ejemplo se pueda leer y explicar rápidamente.
+Las pruebas llaman directamente a los componentes y las páginas porque son
+funciones puras: reciben datos y devuelven HTML.

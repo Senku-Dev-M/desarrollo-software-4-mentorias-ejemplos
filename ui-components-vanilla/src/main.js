@@ -1,58 +1,69 @@
 import "./styles.css";
 import { AppHeader } from "./components/AppHeader.js";
-import { courses } from "./data/courses.js";
-import { FavoritesPage } from "./pages/FavoritesPage.js";
-import { HomePage } from "./pages/HomePage.js";
+import { games } from "./data/games.js";
+import { GameDetailsPage } from "./pages/GameDetailsPage.js";
+import { StorePage } from "./pages/StorePage.js";
+import { WishlistPage } from "./pages/WishlistPage.js";
 
 const app = document.querySelector("#app");
 
 const state = {
-  currentPage: "home",
-  favoriteIds: new Set(),
+  currentPage: "store",
+  selectedGameId: null,
+  wishlistIds: new Set(),
 };
 
 function render() {
-  const pageProps = {
-    courses,
-    favoriteIds: state.favoriteIds,
-  };
+  const selectedGame = games.find((game) => game.id === state.selectedGameId);
+  const sharedProps = { games, wishlistIds: state.wishlistIds };
 
   const pages = {
-    home: () => HomePage(pageProps),
-    favorites: () => FavoritesPage(pageProps),
+    store: () => StorePage(sharedProps),
+    wishlist: () => WishlistPage(sharedProps),
+    details: () =>
+      GameDetailsPage({
+        game: selectedGame,
+        isWishlisted: state.wishlistIds.has(state.selectedGameId),
+      }),
   };
 
   app.innerHTML = `
     ${AppHeader({
       currentPage: state.currentPage,
-      favoriteCount: state.favoriteIds.size,
+      wishlistCount: state.wishlistIds.size,
     })}
     ${pages[state.currentPage]()}
-    <footer class="app-footer">Componentes pequeños · Datos claros · Una sola responsabilidad</footer>
   `;
 }
 
 app.addEventListener("click", (event) => {
-  const pageLink = event.target.closest("[data-page]");
-  const favoriteButton = event.target.closest('[data-action="toggle-favorite"]');
+  const pageButton = event.target.closest("[data-page]");
+  const actionButton = event.target.closest("[data-action]");
 
-  if (pageLink) {
-    event.preventDefault();
-    state.currentPage = pageLink.dataset.page;
+  if (pageButton) {
+    state.currentPage = pageButton.dataset.page;
     render();
+    return;
   }
 
-  if (favoriteButton) {
-    const courseId = Number(favoriteButton.dataset.courseId);
+  if (!actionButton) return;
 
-    if (state.favoriteIds.has(courseId)) {
-      state.favoriteIds.delete(courseId);
+  const gameId = Number(actionButton.dataset.gameId);
+
+  if (actionButton.dataset.action === "view-details") {
+    state.selectedGameId = gameId;
+    state.currentPage = "details";
+  }
+
+  if (actionButton.dataset.action === "toggle-wishlist") {
+    if (state.wishlistIds.has(gameId)) {
+      state.wishlistIds.delete(gameId);
     } else {
-      state.favoriteIds.add(courseId);
+      state.wishlistIds.add(gameId);
     }
-
-    render();
   }
+
+  render();
 });
 
 render();

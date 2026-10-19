@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Usuarios · POC PostgreSQL</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <p class="label">POC 01 / DATOS</p>
+    <h1>Usuarios</h1>
+    <p>Un formulario, una tabla y tus datos guardados.</p>
+    <form id="form">
+      <input id="id" type="hidden">
+      <label>Nombre <input id="name" required maxlength="100" placeholder="Ana Vargas"></label>
+      <label>Correo <input id="email" type="email" required maxlength="200" placeholder="ana@ejemplo.com"></label>
+      <div><button id="save">Crear usuario</button> <button id="cancel" type="button" hidden>Cancelar</button></div>
+    </form>
+    <p id="message" role="status"></p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>ID</th><th>Nombre</th><th>Correo</th><th>Acciones</th></tr></thead>
+      <tbody id="users"></tbody>
+    </table></div>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

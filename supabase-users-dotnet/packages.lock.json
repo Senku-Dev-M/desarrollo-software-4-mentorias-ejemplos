@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0": {
+      "DotNetEnv": {
+        "type": "Direct",
+        "requested": "[3.2.0, )",
+        "resolved": "3.2.0",
+        "contentHash": "2q+PD+aJcRW9QuRcIv4F8WbvEDxI6cwxzZJec2i45cBY4cAKCAoW4ZPkApJ7H82wr6Yfmxx/0kb1nLnRmZrGZA==",
+        "dependencies": {
+          "Superpower": "3.0.0"
+        }
+      },
+      "Supabase": {
+        "type": "Direct",
+        "requested": "[8.3.1, )",
+        "resolved": "8.3.1",
+        "contentHash": "srYDKe5sWl2V6nTa8yzrQRi+UGi8mflSlEZR0WI8WxRA3GtzFAqZp5fv2o0V0DiQYporDeyCtjTw2efQKzg1lA==",
+        "dependencies": {
+          "Supabase.Core": "8.3.1",
+          "Supabase.Functions": "8.3.1",
+          "Supabase.Gotrue": "8.3.1",
+          "Supabase.Postgrest": "8.3.1",
+          "Supabase.Realtime": "8.3.1",
+          "Supabase.Storage": "8.3.1"
+        }
+      },
+      "BirdMessenger": {
+        "type": "Transitive",
+        "resolved": "4.0.0",
+        "contentHash": "K92hTkTn8fkZOjoMi0j0ZhxJ/Ey8ra5nSxuwEc3gZJzT8gdRh6JSSUS6CV4+fyNcjdw1M37/nckubzyMvudvJw=="
+      },
+      "Microsoft.IdentityModel.Abstractions": {
+        "type": "Transitive",
+        "resolved": "7.5.1",
+        "contentHash": "PT16ZFbPIiMsYv07oy3zOjqUOJ7xutGBkJTOX0+IbNyU6+O6X7aIxjq9EaSSRLWbekRgamgtmfg8Xjw6A6Ua9g=="
+      },
+      "Microsoft.IdentityModel.JsonWebTokens": {
+        "type": "Transitive",
+        "resolved": "7.5.1",
+        "contentHash": "93CGSa8RPdZU8zfvA3nf9NGKUqEnQrE12VzYlMqKh72ddhzusosqLNEUgH/YhFWBLRFOnY1RCgHMV7pR+sAx2w==",
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "7.5.1"
+        }
+      },
+      "Microsoft.IdentityModel.Logging": {
+        "type": "Transitive",
+        "resolved": "7.5.1",
+        "contentHash": "PnpAQX20BAiDIPYmWUyQSlEaWD8BLXzHpiDGTCT568Cs0ReOeyzNe401LzCeiv6ilug/KefVeV1CeqtCHTo8dw==",
+        "dependencies": {
+          "Microsoft.IdentityModel.Abstractions": "7.5.1"
+        }
+      },
+      "Microsoft.IdentityModel.Tokens": {
+        "type": "Transitive",
+        "resolved": "7.5.1",
+        "contentHash": "Q3DKpyFViP84IUlTFKH/zIkswIrmSh2Vd/eFDo4wlOHy4DYxoweZEEw4kDEiKt9VCX6o7SddK3HK2xDYyFpexA==",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "7.5.1"
+        }
+      },
+      "Microsoft.IO.RecyclableMemoryStream": {
+        "type": "Transitive",
+        "resolved": "3.0.1",
+        "contentHash": "s/s20YTVY9r9TPfTrN5g8zPF1YhwxyqO6PxUkrYTGI2B+OGPe9AdajWZrLhFqXIvqIW23fnUE4+ztrUWNU1+9g=="
+      },
+      "MimeMapping": {
+        "type": "Transitive",
+        "resolved": "4.0.0",
+        "contentHash": "5WK3+mjdCeCKg3znVr+sm/sikVnya7UOHWxt4vJeW+Tbp2GgdLiBLRFBJ91oDyL/NcDVd1sEelQ7ixIN68s33g=="
+      },
+      "Supabase.Core": {
+        "type": "Transitive",
+        "resolved": "8.3.1",
+        "contentHash": "XnKQeNp01c3rlC7lUpK9R41G7u8RaKZtHscHhLUGyAG3TDc/ntvDlEoqvJLNcoRswk4mG240n2sA/KOODg+J0Q=="
+      },
+      "Supabase.Functions": {
+        "type": "Transitive",
+        "resolved": "8.3.1",
+        "contentHash": "YNcXXVaG6bumgAc01phCGlRRNa3/EFyJcPKO2zed1Uh68Z8WFhObwVz05lrhiP80mjoCsaZDHfaYOpkbnSLiOA==",
+        "dependencies": {
+          "Supabase.Core": "8.3.1"
+        }
+      },
+      "Supabase.Gotrue": {
+        "type": "Transitive",
+        "resolved": "8.3.1",
+        "contentHash": "hT4Z32DtYmVeEmy29s7cqzHRODLGppD4JAjMdr5r6fGwY5dgo0nOBNhIDQJgUX2RDi6Wh1bh/K7NOp8R9vr0bg==",
+        "dependencies": {
+          "Supabase.Core": "8.3.1",
+          "System.IdentityModel.Tokens.Jwt": "7.5.1"
+        }
+      },
+      "Supabase.Postgrest": {
+        "type": "Transitive",
+        "resolved": "8.3.1",
+        "contentHash": "d9WxMTPARLn2bHveWYV/qMMiDmb9mbDceTl807UZJ+O9easq2gF90pxX6nhOHvTHBp5rGdNRT1lxN+A/JpTFRQ==",
+        "dependencies": {
+          "Supabase.Core": "8.3.1"
+        }
+      },
+      "Supabase.Realtime": {
+        "type": "Transitive",
+        "resolved": "8.3.1",
+        "contentHash": "iEXFmFatYeag6mRXgpsIR9/ahUCiIqNq3I0GuSxGZgHLF0yvma5khzE9lA2L6YXnuJEZ5b5knrlpt4ffV+eKAQ==",
+        "dependencies": {
+          "Supabase.Core": "8.3.1",
+          "Supabase.Postgrest": "8.3.1",
+          "Websocket.Client": "5.5.0"
+        }
+      },
+      "Supabase.Storage": {
+        "type": "Transitive",
+        "resolved": "8.3.1",
+        "contentHash": "Sw8fcVSWCGKrd0mBSqTO3ErADQpzXqFuBfo71d2ONuRStFA0chh5b9QkRMT4jyRVZSNQYZlpT88ZEu8vcBIZoQ==",
+        "dependencies": {
+          "BirdMessenger": "4.0.0",
+          "MimeMapping": "4.0.0",
+          "Supabase.Core": "8.3.1"
+        }
+      },
+      "Superpower": {
+        "type": "Transitive",
+        "resolved": "3.0.0",
+        "contentHash": "bjKbAYWePooCAvPxQq+3KnmcLfRggMyRoXmtBMlmCG71bdwBHrO6rmRJ2DRIodg5aztNcxeZXBUVWT+H+MZUhw=="
+      },
+      "System.IdentityModel.Tokens.Jwt": {
+        "type": "Transitive",
+        "resolved": "7.5.1",
+        "contentHash": "UUw+E0R73lZLlXgneYIJQxNs1kfbcxjVzw64JQyiwjqCd4HMpAbjn+xRo86QZT84uHq8/MkqvfH82tgjgPzpuw==",
+        "dependencies": {
+          "Microsoft.IdentityModel.JsonWebTokens": "7.5.1",
+          "Microsoft.IdentityModel.Tokens": "7.5.1"
+        }
+      },
+      "System.Reactive": {
+        "type": "Transitive",
+        "resolved": "6.1.0",
+        "contentHash": "M5cCC1ZMkZr9jbSQGTHnVkb5TDN67qWCV7AP8TAHdGkvDlu0puT5NzemESNn9+HkYIDpWpocP68/i+/ame2/2w=="
+      },
+      "Websocket.Client": {
+        "type": "Transitive",
+        "resolved": "5.5.0",
+        "contentHash": "xJ5pTXiNSfwOzJVFcrUF1JROo63zjETJgIA4+ik/JxOJdNEv15e3NZ6bgpNQkyWhapcedP5HCa96hn9YCXwenw==",
+        "dependencies": {
+          "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
+          "System.Reactive": "6.1.0"
+        }
+      }
+    }
+  }
+}

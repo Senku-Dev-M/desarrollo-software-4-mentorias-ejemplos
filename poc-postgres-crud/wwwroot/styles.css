@@ -1,0 +1,20 @@
+:root { color: #202822; background: #f5f5ef; font-family: 'Segoe UI', sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 860px; margin: 64px auto; padding: 0 24px; }
+.label { font: 12px Consolas, monospace; letter-spacing: .15em; color: #386649; }
+h1 { font: 52px Georgia, serif; margin: 12px 0; }
+form { display: flex; gap: 16px; flex-wrap: wrap; align-items: end; padding: 24px; margin-top: 32px; border: 1px solid #bec7ba; background: white; }
+label { flex: 1; min-width: 180px; font-size: 14px; }
+input { display: block; width: 100%; margin-top: 8px; padding: 11px; border: 1px solid #a4b0a5; font: inherit; }
+button { cursor: pointer; border: 1px solid #386649; background: #386649; color: white; padding: 11px 14px; font: inherit; }
+button:disabled { opacity: .6; cursor: wait; }
+button:focus-visible, input:focus-visible { outline: 3px solid #d99e28; outline-offset: 3px; }
+#cancel, td button { background: transparent; color: #284d35; }
+#message { min-height: 24px; color: #284d35; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 14px; text-align: left; border-bottom: 1px solid #d4dbd1; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; background: #e9eee5; }
+td button { margin: 2px 6px 2px 0; padding: 6px 10px; }
+@media (max-width: 600px) { main { margin-top: 32px; } form { flex-direction: column; align-items: stretch; } }

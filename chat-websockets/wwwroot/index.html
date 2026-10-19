@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat · WebSockets</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">LAB / TIEMPO REAL</p>
+      <h1>Chat con WebSockets</h1>
+      <p>Abre dos pestañas de la misma versión y conversa entre ellas.</p>
+    </header>
+
+    <section class="chat" aria-labelledby="room-title">
+      <div class="room-heading">
+        <h2 id="room-title"></h2>
+        <span id="status" role="status">Desconectado</span>
+      </div>
+      <div class="connection">
+        <label for="name">Tu nombre</label>
+        <input id="name" value="Ana" maxlength="30" autocomplete="nickname">
+        <button id="connect">Conectar</button>
+        <button id="disconnect" class="secondary" disabled>Desconectar</button>
+      </div>
+      <ol id="messages" aria-label="Mensajes" aria-live="polite">
+        <li id="empty">Los mensajes aparecerán aquí. Conecta ambas pestañas antes de enviar.</li>
+      </ol>
+      <form id="message-form">
+        <label class="sr-only" for="text">Mensaje</label>
+        <input id="text" placeholder="Escribe un mensaje…" maxlength="500" required disabled autocomplete="off">
+        <button id="send" disabled>Enviar</button>
+      </form>
+      <p id="feedback" role="status"></p>
+    </section>
+    <footer>
+      <p id="explanation"></p>
+      <p>Ejemplo independiente. Los mensajes no se guardan.</p>
+    </footer>
+  </main>
+  <script type="module" src="js/chat-page.js"></script>
+</body>
+</html>

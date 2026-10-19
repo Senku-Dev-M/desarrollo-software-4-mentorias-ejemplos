@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subir imagen · POC Storage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <p class="label">POC 02 / IMÁGENES</p>
+    <h1>Sube. Abre. Comparte.</h1>
+    <p>Elige una imagen y obtén un enlace público.</p>
+    <form id="form">
+      <label for="image">Imagen <small>PNG, JPG o WebP · hasta 2 MB</small></label>
+      <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp" required>
+      <p class="notice">Cualquier persona con el enlace podrá verla. Usa imágenes de prueba.</p>
+      <button id="upload">Subir imagen</button>
+    </form>
+    <p id="message" role="status"></p>
+    <section id="result" hidden>
+      <h2>Tu imagen está lista</h2>
+      <img id="preview" alt="Imagen subida">
+      <label for="url">URL pública</label>
+      <input id="url" readonly>
+      <a id="open" target="_blank" rel="noopener noreferrer">Abrir imagen</a>
+      <button id="copy" type="button">Copiar URL</button>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

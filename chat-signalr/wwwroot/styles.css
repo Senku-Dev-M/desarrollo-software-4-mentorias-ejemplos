@@ -1,0 +1,31 @@
+:root { font-family: 'Segoe UI', sans-serif; color: #24302e; background: #f4f3ec; --accent: #315a87; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 900px; margin: 45px auto; padding: 0 24px; }
+.eyebrow { font: 12px Consolas, monospace; letter-spacing: .18em; color: var(--accent); }
+h1 { font: 46px Georgia, serif; margin: 12px 0; }
+header > p:last-child, footer { color: #58645f; line-height: 1.6; }
+.chat { border: 1px solid #bac4bc; background: white; }
+.room-heading { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; border-bottom: 1px solid #dde2dc; }
+h2 { font-size: 18px; margin: 0; }
+#status { font-size: 13px; color: #65706b; }
+#status[data-state='connected'] { color: var(--accent); font-weight: 700; }
+.connection { display: flex; align-items: center; gap: 10px; padding: 18px 22px; border-bottom: 1px solid #dde2dc; }
+input { font: inherit; padding: 10px 12px; border: 1px solid #b6c0b9; min-width: 0; }
+#name { flex: 1; width: 100px; }
+button { font: inherit; padding: 10px 15px; cursor: pointer; border: 1px solid var(--accent); background: var(--accent); color: white; }
+.secondary { background: white; color: var(--accent); }
+button:disabled { opacity: .5; cursor: default; }
+#messages { list-style: none; margin: 0; padding: 18px 22px; height: 270px; overflow-y: auto; }
+#messages li { border-bottom: 1px solid #ebeee9; padding: 10px 0; }
+#messages time { font: 11px Consolas, monospace; margin-left: 12px; color: #6d7671; }
+#messages p { margin: 7px 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+#empty { color: #6d7671; font-size: 14px; line-height: 1.7; }
+form { display: flex; gap: 10px; padding: 16px 22px; border-top: 1px solid #dde2dc; }
+#text { flex: 1; }
+#feedback { min-height: 18px; margin: 0 22px 12px; color: #963e32; font-size: 13px; }
+footer { font-size: 13px; margin-top: 15px; }
+footer p { margin: 5px 0; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #d4a140; outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 600px) { main { margin-top: 25px; padding: 0 14px; } h1 { font-size: 34px; } .connection { flex-wrap: wrap; } .connection label { flex-basis: 100%; } #messages { height: 260px; } }

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CRUD educativo de usuarios con ASP.NET Core y Supabase." />
+    <title>Directorio Supabase</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">ASP.NET Core + Supabase</p>
+          <h1>Directorio de usuarios</h1>
+          <p>Los datos y fotografías se guardan en la nube, no en este equipo.</p>
+        </div>
+        <span class="cloud-status" id="cloud-status">Comprobando conexión…</span>
+      </header>
+
+      <section class="workspace">
+        <form id="user-form" class="user-form">
+          <input type="hidden" id="user-id" />
+          <div class="form-heading">
+            <span id="form-number">01</span>
+            <div>
+              <p>Formulario</p>
+              <h2 id="form-title">Nuevo usuario</h2>
+            </div>
+          </div>
+
+          <label>
+            Nombre
+            <input id="name" name="name" maxlength="120" required placeholder="Ana Vargas" />
+          </label>
+
+          <label>
+            Correo
+            <input id="email" name="email" type="email" maxlength="200" required placeholder="ana@ejemplo.com" />
+          </label>
+
+          <label>
+            Fotografía <small>JPG, PNG o WebP · máximo 2 MB</small>
+            <input id="avatar" name="avatar" type="file" accept="image/jpeg,image/png,image/webp" />
+          </label>
+
+          <div class="form-actions">
+            <button class="primary-button" type="submit" id="save-button">Crear usuario</button>
+            <button class="text-button" type="button" id="cancel-button" hidden>Cancelar edición</button>
+          </div>
+          <p class="form-message" id="form-message" role="status"></p>
+        </form>
+
+        <section class="directory" aria-labelledby="directory-title">
+          <div class="directory-heading">
+            <div>
+              <p>Base de datos</p>
+              <h2 id="directory-title">Usuarios guardados</h2>
+            </div>
+            <span id="user-count">0 registros</span>
+          </div>
+          <div id="user-list" class="user-list" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="empty-template">
+      <div class="empty-state">
+        <span>＋</span>
+        <h3>Aún no hay usuarios</h3>
+        <p>Completa el formulario para crear el primer registro en Supabase.</p>
+      </div>
+    </template>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

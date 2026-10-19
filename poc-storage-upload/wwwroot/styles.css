@@ -1,0 +1,19 @@
+:root { color: #242431; background: #f2f3f6; font-family: 'Segoe UI', sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 650px; margin: 64px auto; padding: 0 24px; }
+.label { font: 12px Consolas, monospace; letter-spacing: .15em; color: #335d92; }
+h1 { font: 44px Georgia, serif; margin: 16px 0; }
+form, section { background: white; padding: 24px; border: 1px solid #bac5d5; margin-top: 28px; }
+label { display: block; font-weight: 600; margin-bottom: 12px; }
+small { display: block; font-weight: normal; margin-top: 6px; color: #555e6d; }
+input { width: 100%; padding: 12px; border: 1px solid #abb6c7; font: inherit; background: #fff; }
+button { cursor: pointer; padding: 11px 18px; border: 1px solid #335d92; background: #335d92; color: white; font: inherit; }
+button:disabled { opacity: .6; cursor: wait; }
+.notice { font-size: 13px; color: #555e6d; line-height: 1.6; }
+#message { min-height: 24px; }
+#preview { display: block; max-width: 100%; max-height: 260px; margin: 16px auto 24px; }
+#url { font: 12px Consolas, monospace; margin-bottom: 16px; }
+a { color: #335d92; margin-right: 18px; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid #dcad43; outline-offset: 3px; }
+@media (max-width: 600px) { main { margin-top: 32px; } h1 { font-size: 36px; } }

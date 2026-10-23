@@ -12,6 +12,7 @@ interfaces mediante una implementación pequeña, ejecutable y fácil de explica
 | [`clean-architecture-node`](./clean-architecture-node) | Node.js / Express 5 | Equivalente JavaScript de la misma API y arquitectura. |
 | [`mvvm-rick-and-morty`](./mvvm-rick-and-morty) | Vanilla JavaScript / Vite | Explorador de personajes que demuestra el patrón MVVM. |
 | [`ui-components-vanilla`](./ui-components-vanilla) | HTML / CSS / Vanilla JavaScript | Catálogo de juegos para aprender componentes, páginas y reutilización. |
+| [`demo-flex-grid`](./demo-flex-grid) | HTML / CSS | Demo y guía de Flexbox, Grid y responsive: propiedades, cuándo usarlos y ejercicios. Abre `index.html` con doble clic. |
 | [`chat-websockets`](./chat-websockets) | C# / WebSockets / Vanilla JavaScript | Chat independiente con gestión manual de conexiones y mensajes JSON. |
 | [`chat-signalr`](./chat-signalr) | C# / SignalR / Vanilla JavaScript | Chat independiente con Hub, eventos y reconexión configurada. |
 | [`poc-postgres-crud`](./poc-postgres-crud) | C# / Npgsql / PostgreSQL en Supabase | CRUD tradicional con SQL parametrizado, sin SDK Supabase. |
@@ -35,6 +36,18 @@ composición de componentes con JavaScript vanilla.
 
 Cada carpeta contiene su propio `README.md` con instrucciones de ejecución y
 detalles de la implementación.
+
+## Maquetación con Flexbox y Grid
+
+[`demo-flex-grid`](./demo-flex-grid/README.md) incluye una guía para aprender
+cuándo usar cada herramienta, distinguir propiedades del contenedor y de sus
+hijos, trabajar con ejes, tamaños, alineación y diseños responsive.
+
+La demo es estática: abre [`index.html`](./demo-flex-grid/index.html) en tu
+navegador y modifica [`styles.css`](./demo-flex-grid/styles.css) para practicar.
+No requiere .NET, Node.js, npm, backend ni instalación de dependencias.
+La guía explica el código actual y separa las variantes opcionales para probar
+columnas automáticas, áreas de Grid y tamaños flexibles.
 
 ## Ruta sugerida para los nuevos ejemplos
 

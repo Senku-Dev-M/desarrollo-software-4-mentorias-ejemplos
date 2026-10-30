@@ -1,0 +1,15 @@
+# Build and binary folders
+**/bin/
+**/obj/
+**/.vs/
+**/.vscode/
+
+# Environment files
+.env
+
+# Docker data volume artifacts
+postgres_data/
+
+# OS metadata
+.DS_Store
+Thumbs.db

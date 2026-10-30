@@ -18,6 +18,7 @@ interfaces mediante una implementación pequeña, ejecutable y fácil de explica
 | [`poc-postgres-crud`](./poc-postgres-crud) | C# / Npgsql / PostgreSQL en Supabase | CRUD tradicional con SQL parametrizado, sin SDK Supabase. |
 | [`poc-storage-upload`](./poc-storage-upload) | C# / HttpClient / Supabase Storage | Subida de imagen a un bucket público y devolución de su URL, sin SDK. |
 | [`supabase-users-dotnet`](./supabase-users-dotnet) | C# / SDK Supabase / Database + Storage | CRUD de usuarios con avatar en bucket privado y URL firmada temporal. |
+| [`clean-architecture-games`](./clean-architecture-games) | .NET 8 / PostgreSQL / Vanilla JS + Vite | Catálogo SPA de videojuegos con CRUD, Clean Architecture en el backend y MVVM en el frontend. |
 
 Los ejemplos de Clean Architecture incluyen:
 
@@ -36,6 +37,20 @@ composición de componentes con JavaScript vanilla.
 
 Cada carpeta contiene su propio `README.md` con instrucciones de ejecución y
 detalles de la implementación.
+
+## Clean Architecture Games
+
+[`clean-architecture-games`](./clean-architecture-games) es un ejemplo más
+completo de un catálogo de videojuegos. El backend separa dominio, aplicación,
+infraestructura y API con ASP.NET Core 8, Entity Framework Core y PostgreSQL;
+el frontend es una SPA independiente con Vanilla JavaScript, Vite, hash
+routing y MVVM.
+
+Incluye operaciones CRUD para juegos, búsqueda, filtro por género, detalle,
+formulario de alta/edición, eliminación y una interfaz tipo catálogo. Su
+README documenta la estructura de carpetas, endpoints, configuración por
+variables de entorno, ejecución local con PostgreSQL o Docker y la relación
+entre las capas.
 
 ## Maquetación con Flexbox y Grid
 

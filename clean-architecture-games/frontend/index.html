@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games Vault - Clean Architecture SPA</title>
+    <meta name="description" content="Vanilla JS MVVM SPA consuming .NET 8 Clean Architecture REST API" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+
+    <!-- CSS Layers -->
+    <link rel="stylesheet" href="/src/styles/base.css" />
+    <link rel="stylesheet" href="/src/styles/layout.css" />
+    <link rel="stylesheet" href="/src/styles/components.css" />
+    <link rel="stylesheet" href="/src/styles/pages.css" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation Bar Mount Point -->
+        <header id="navbar-mount"></header>
+
+        <!-- SPA Page Content Mount Point -->
+        <main class="main-content" id="app-root"></main>
+
+        <!-- Application Footer -->
+        <footer class="app-footer">
+            <div class="footer-container">
+                <div>
+                    <span>Games Vault &bull; SPA Vanilla JS (MVVM) + Vite &plus; .NET 8 Clean Architecture</span>
+                </div>
+                <div class="api-status-indicator">
+                    <span class="status-dot"></span>
+                    <span>API Endpoint: <code id="footer-api-url">http://localhost:5000/api</code></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Main ES Module Entry Point -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

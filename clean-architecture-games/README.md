@@ -2,7 +2,7 @@
 
 Solución completa para la gestión de videojuegos que implementa **Clean Architecture** y principios **SOLID** en el backend (.NET 8) y una **Single Page Application (SPA)** con arquitectura **MVVM (Model - View - ViewModel)** en el frontend utilizando exclusivamente **HTML5, CSS3 y JavaScript Vanilla (ES Modules)**.
 
-El backend y el frontend son aplicaciones **100% independientes y desacopladas**, diseñadas para poder ejecutarse de forma manual en terminales o entornos separados, **configuradas exclusivamente por variables de entorno sin valores hardcodeados**.
+El backend y el frontend son aplicaciones **100% independientes y desacopladas**, diseñadas para poder ejecutarse de forma manual en terminales o entornos separados.
 
 ---
 
@@ -25,8 +25,34 @@ El backend y el frontend son aplicaciones **100% independientes y desacopladas**
                                PostgreSQL (:5432)
 ```
 
-> [!IMPORTANT]
-> **Sin Hardcoding & Sin NGINX:** El frontend y el backend se configuran mediante variables de entorno (`API_BASE_URL` en el frontend y `ConnectionStrings__DefaultConnection` en el backend). No están unidos por reverse proxies ni reescrituras internas.
+## 🔌 Comunicación entre frontend y backend
+
+El navegador carga la SPA desde Vite y el código de `GameApiService.js` usa la
+API nativa `fetch` para enviar solicitudes HTTP al backend. La URL base se lee
+desde `VITE_API_BASE_URL`, por lo que el frontend no necesita conocer detalles
+de la base de datos.
+
+Por ejemplo, para listar juegos el recorrido es:
+
+```text
+CatalogPage
+    → GameListViewModel
+        → GameApiService.list()
+            → fetch("http://localhost:5000/api/games")
+                → GamesController (ASP.NET Core)
+                    → caso de uso de Application
+                        → GameRepository (EF Core)
+                            → PostgreSQL
+```
+
+El backend responde con JSON y el servicio HTTP lo devuelve al ViewModel. El
+ViewModel actualiza el estado de la página y los componentes vuelven a
+renderizar las tarjetas. Crear, editar y eliminar siguen el mismo patrón con
+`POST`, `PUT` y `DELETE`; el detalle usa `GET /api/games/{id}`.
+
+El backend permite el origen del frontend mediante CORS. Son dos procesos
+separados: el frontend solo consume endpoints HTTP y el backend es quien se
+conecta a PostgreSQL mediante `ConnectionStrings__DefaultConnection`.
 
 ---
 
@@ -127,7 +153,7 @@ clean-architecture-games/
 
 ---
 
-## 🧭 3. Rutas de la SPA Frontend
+## 🧭 4. Rutas de la SPA Frontend
 
 El frontend implementa navegación instantánea mediante **Hash Routing** (`window.location.hash`), lo que permite que funcione en cualquier servidor web sin requerir reescrituras de URL:
 
@@ -140,7 +166,7 @@ El frontend implementa navegación instantánea mediante **Hash Routing** (`wind
 
 ---
 
-## 🚀 4. Guía de Ejecución
+## 🚀 5. Guía de Ejecución
 
 ### 1. Iniciar Base de Datos PostgreSQL
 ```bash
@@ -178,7 +204,7 @@ Abre en tu navegador:
 
 ---
 
-## 🌐 5. Endpoints de la API REST
+## 🌐 6. Endpoints de la API REST
 
 | Método | Ruta | Status Code | Descripción |
 |---|---|---|---|
@@ -190,7 +216,7 @@ Abre en tu navegador:
 
 ---
 
-## 🧪 6. Pruebas Unitarias del Backend
+## 🧪 7. Pruebas Unitarias del Backend
 
 ```bash
 cd clean-architecture-games/backend

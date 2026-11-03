@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../01-ef/ProductsEf/ProductsEf.csproj" />
+    <ProjectReference Include="../../02-sql/ProductsSql/ProductsSql.csproj" />
+  </ItemGroup>
+</Project>

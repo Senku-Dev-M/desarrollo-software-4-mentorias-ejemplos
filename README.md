@@ -19,6 +19,8 @@ interfaces mediante una implementación pequeña, ejecutable y fácil de explica
 | [`poc-storage-upload`](./poc-storage-upload) | C# / HttpClient / Supabase Storage | Subida de imagen a un bucket público y devolución de su URL, sin SDK. |
 | [`supabase-users-dotnet`](./supabase-users-dotnet) | C# / SDK Supabase / Database + Storage | CRUD de usuarios con avatar en bucket privado y URL firmada temporal. |
 | [`clean-architecture-games`](./clean-architecture-games) | .NET 8 / PostgreSQL / Vanilla JS + Vite | Catálogo SPA de videojuegos con CRUD, Clean Architecture en el backend y MVVM en el frontend. |
+| [`auth-roles-dotnet`](./auth-roles-dotnet) | .NET 10 / ASP.NET Core | Middleware Bearer, respuestas HTTP y endpoints por rol. |
+| [`auth-roles-spa`](./auth-roles-spa) | HTML / CSS / Vanilla JavaScript + Vite | Inicio de sesión y rutas con permisos por rol. |
 
 Los ejemplos de Clean Architecture incluyen:
 
@@ -51,6 +53,17 @@ formulario de alta/edición, eliminación y una interfaz tipo catálogo. Su
 README documenta la estructura de carpetas, endpoints, configuración por
 variables de entorno, ejecución local con PostgreSQL o Docker y la relación
 entre las capas.
+
+## Autenticación y rutas por rol
+
+1. En [el backend C#](./auth-roles-dotnet), sigue el middleware desde
+   `Authorization: Bearer` hasta la política del endpoint. Completa la validación
+   con Supabase Auth y consulta `public.users.role` con el UUID verificado.
+2. En [la SPA con Vite](./auth-roles-spa), conecta el formulario con Supabase Auth
+   y envía el token a `GET /api/me`. Revisa cómo el router decide qué vistas
+   puede abrir cada perfil.
+3. Prueba los tres recorridos: sin token (`401`), con un rol sin permiso (`403`)
+   y con el rol que exige el endpoint.
 
 ## Maquetación con Flexbox y Grid
 
@@ -101,7 +114,6 @@ anterior más compacta para comparar enfoques.
 - `poc-postgres-crud/certs` contiene un certificado **público**, no una clave privada.
 - Revisa Usage y las condiciones actuales del plan; no actives add-ons de pago
   para seguir la práctica. Las guías de Supabase enlazan sus fuentes oficiales.
-- Son ejercicios locales sin login, no servicios listos para exponer en Internet.
 
 Se conservan únicamente los archivos necesarios para ejecutar y entender cada
 ejemplo, sus guías y las capturas didácticas. Los archivos generados (`bin`, `obj`,

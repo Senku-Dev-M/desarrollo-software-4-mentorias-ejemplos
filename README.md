@@ -21,6 +21,7 @@ interfaces mediante una implementación pequeña, ejecutable y fácil de explica
 | [`clean-architecture-games`](./clean-architecture-games) | .NET 8 / PostgreSQL / Vanilla JS + Vite | Catálogo SPA de videojuegos con CRUD, Clean Architecture en el backend y MVVM en el frontend. |
 | [`auth-roles-dotnet`](./auth-roles-dotnet) | .NET 10 / ASP.NET Core | Middleware Bearer, respuestas HTTP y endpoints por rol. |
 | [`auth-roles-spa`](./auth-roles-spa) | HTML / CSS / Vanilla JavaScript + Vite | Inicio de sesión y rutas con permisos por rol. |
+| [`playwright-demo`](./playwright-demo) | Playwright / TypeScript / .NET 10 / Vite | Pruebas de API, frontend e integración con Page Objects, fixtures y mocks. |
 
 Los ejemplos de Clean Architecture incluyen:
 
@@ -64,6 +65,15 @@ entre las capas.
    puede abrir cada perfil.
 3. Prueba los tres recorridos: sin token (`401`), con un rol sin permiso (`403`)
    y con el rol que exige el endpoint.
+
+## Pruebas E2E con Playwright
+
+[`playwright-demo`](./playwright-demo) es una aplicación educativa de productos
+con una API ASP.NET Core, una interfaz Vanilla JavaScript servida por Vite y
+una suite de Playwright en TypeScript. Separa pruebas de backend, pruebas de
+UI con mocks y pruebas de integración contra la API real. El README del
+proyecto explica Page Object Model, fixtures, aserciones, pruebas de API,
+simulación de red y los comandos para ejecutar cada grupo.
 
 ## Maquetación con Flexbox y Grid
 

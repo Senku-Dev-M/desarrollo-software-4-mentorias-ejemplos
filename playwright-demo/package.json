@@ -1,0 +1,24 @@
+{
+  "name": "playwright-dotnet-vanilla-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo educativa de Playwright con HTML, CSS, JavaScript y ASP.NET Core",
+  "scripts": {
+    "test": "playwright test",
+    "test:backend": "playwright test --project=backend",
+    "test:frontend": "playwright test --project=frontend",
+    "test:integration": "playwright test --project=integration",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report",
+    "dev": "vite frontend --host 127.0.0.1 --port 5173 --strictPort",
+    "build": "vite build frontend"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^22.15.30",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.0"
+  }
+}
